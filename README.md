@@ -7,7 +7,7 @@
 <a id="english-documentation"></a>
 ## 🇬🇧 English Documentation
 
-**Zotero ABS Ranker** is an open-source Zotero 7 extension that empowers researchers by automatically identifying and tagging academic papers with their authoritative journal rankings (ABS/AJG, FT50, UTD24, SSCI). 
+**Zotero ABS Ranker** is an open-source Zotero 7 extension that empowers researchers by automatically identifying and tagging academic papers with their authoritative journal rankings (ABS/AJG, FT50, UTD24). 
 
 Built specifically for Zotero 7, it utilizes an embedded offline database and bulk database transactions for lightning-fast performance.
 
@@ -49,7 +49,7 @@ If you have any extra journal list requests (e.g., CCF, CSSCI) or encounter any 
 <a id="中文说明"></a>
 ## 🌍 中文说明
 
-**Zotero ABS Ranker** 是一款专为 Zotero 7 打造的开源核心学术辅助插件。它能自动识别你库中的学术论文所属的期刊，并一键为你打上最权威的商科/社科期刊评级标签（ABS/AJG, FT50, UTD24, SSCI）。
+**Zotero ABS Ranker** 是一款专为 Zotero 7 打造的开源核心学术辅助插件。它能自动识别你库中的学术论文所属的期刊，并一键为你打上最权威的商科/社科期刊评级标签（ABS/AJG、FT50、UTD24）。
 
 插件内嵌了完整的本地离线数据库，并采用了批量数据库事务写入技术，无需联网即可体验极速打标。
 

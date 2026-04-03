@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Zotero ABS Ranker",
   "version": "1.0.1",
-  "description": "Automatically update journal rankings (ABS, FT50, UTD24, SSCI) by matching publication titles.",
+  "description": "Automatically update journal rankings (ABS, FT50, UTD24) by matching publication titles.",
   "author": "Boyijin",
   "applications": {
     "zotero": {
