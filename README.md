@@ -19,7 +19,7 @@ Built specifically for Zotero 7, it utilizes an embedded offline database and bu
 - **Fuzzy Name Matching:** Hardened against academic database discrepancies. Normalizes journal names by turning titles into lowercase, stripping special characters, and squashing redundant spaces (e.g., handles differences between `&` and `and`).
 
 ### 📦 Installation
-1. Go to the [Releases](#) page and download the latest `.xpi` file (e.g., `zotero-abs-ranker-v1.0.1.xpi`).
+1. Download the latest `.xpi` file by clicking this direct link: **[⏬ Download zotero-abs-ranker-v1.0.1.xpi](https://github.com/boyi0/Zotero-ABS-Ranker/raw/main/zotero-abs-ranker-v1.0.1.xpi)**.
 2. Open Zotero 7 and go to **Tools** > **Add-ons**.
 3. Drag and drop the downloaded `.xpi` file into the Add-ons window to install it. 
 4. Acknowledge the permissions prompt if it appears.
@@ -47,7 +47,7 @@ Built specifically for Zotero 7, it utilizes an embedded offline database and bu
 - **强力容错型清洗匹配:** 无论论文抓取时的期刊名是全大写、词首大写，还是内部包含了奇奇怪怪的标点与空格缩进（如 `&` 与 `and`），底层的标准化算法一律将其进行深度清洗与降维匹配，确保极高命中率。
 
 ### 📦 如何安装
-1. 前往 GitHub 的 [Releases](#) 页面，下载最新的安装包文件（如 `zotero-abs-ranker-v1.0.1.xpi`）。
+1. 点击这里直接下载全功能插件安装包： **[⏬ 下载 zotero-abs-ranker-v1.0.1.xpi](https://github.com/boyi0/Zotero-ABS-Ranker/raw/main/zotero-abs-ranker-v1.0.1.xpi)** 。
 2. 启动 Zotero 7 主程序，点击顶部菜单栏的 **工具(Tools)** > **附加组件(Add-ons)**。
 3. 将下载好的 `.xpi` 文件直接**拖拽**到打开的附加组件窗口中。
 4. 在弹出的安全提示对话框中点击确定安装。
