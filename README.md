@@ -19,7 +19,8 @@ Built specifically for Zotero 7, it utilizes an embedded offline database and bu
 - **Auto-Tagging & Metadata Injection:** Automatically attaches colored tags (e.g., `ABS 4*`, `FT50`, `UTD24`) and injects a clean, searchable `Ranking: ABS 4* | FT50` string safely into the bottom of the item's `Extra` field.
 - **Robust Idempotency:** Running it multiple times on the same item is perfectly safe. It intelligently scans, cleans up old ranking tags, and replaces previous ranking lines in the Extra field without altering other custom user metadata.
 - **High Performance:** Resolves the notorious Zotero SQLite bottleneck by wrapping item array updates inside `Zotero.DB.executeTransaction(...)`, making it handle hundreds of papers flawlessly down to fractional milliseconds.
-- **Fuzzy Name Matching:** Hardened against academic database discrepancies. Normalizes journal names by turning titles into lowercase, stripping special characters, and squashing redundant spaces (e.g., handles differences between `&` and `and`).
+- **Fuzzy Name Matching:** Hardened against academic database discrepancies. Normalizes journal names by converting to lowercase, expanding `&` to `and`, replacing hyphens with spaces, stripping remaining special characters, and squashing redundant spaces (e.g., `R&D Management` and `Asia-Pacific Journal of Management` both match correctly).
+- **Completion Feedback:** After running, a summary dialog reports how many items were successfully updated and how many had no matching journal in the database.
 
 ### 📦 Installation
 1. Download the latest `.xpi` file by clicking this direct link: **[⏬ Download zotero-abs-ranker-v1.0.1.xpi](https://github.com/boyi0/Zotero-ABS-Ranker/raw/main/zotero-abs-ranker-v1.0.1.xpi)**.
@@ -61,7 +62,8 @@ If you have any extra journal list requests (e.g., CCF, CSSCI) or encounter any 
 - **自动化交叉双标体系:** 选中文章后，插件会自动生成专属且带有层级的彩色标签 (例如 `ABS 4*`, `FT50`)，同时智能在文献的 `Extra` (附加) 字段最底部写入干净的记录（例如：`Ranking: ABS 4* | UTD24` ），不影响正常排版且极为便携检索。
 - **100% 幂等与无损覆盖防抖机制:** 重复运行完全自由。它会在更新前智能剥除它曾经打过的旧星级标签，精准替换 Extra 里的特定排名行，绝不会干扰污染你的原有笔记及其他插件数据。
 - **极致的百倍提速:** 绕过了传统 Zotero 脚本 `saveTx()` 单线死循环的通病。通过原生调用 `Zotero.DB.executeTransaction(...)` 实现数据库打包提交，即使一秒拉取并批量改写几百篇文献也毫无阻滞反馈。
-- **强力容错型清洗匹配:** 无论论文抓取时的期刊名是全大写、词首大写，还是内部包含了奇奇怪怪的标点与空格缩进（如 `&` 与 `and`），底层的标准化算法一律将其进行深度清洗与降维匹配，确保极高命中率。
+- **强力容错型清洗匹配:** 无论论文抓取时的期刊名是全大写、词首大写，还是包含特殊符号，底层标准化算法均会将 `&` 展开为 `and`、连字符转换为空格，再进行深度清洗与降维匹配，确保极高命中率（如 `R&D Management`、`Asia-Pacific Journal of Management` 均可正确识别）。
+- **操作完成反馈:** 每次运行结束后，会弹出摘要提示框，告知本次成功更新了几条文献、有几条未能在数据库中找到匹配期刊。
 
 ### 📦 如何安装
 1. 点击这里直接下载全功能插件安装包： **[⏬ 下载 zotero-abs-ranker-v1.0.1.xpi](https://github.com/boyi0/Zotero-ABS-Ranker/raw/main/zotero-abs-ranker-v1.0.1.xpi)** 。

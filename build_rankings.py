@@ -7,11 +7,10 @@ import glob
 def standardize(name):
     if not isinstance(name, str):
         return ""
-    # 转小写
     name = name.lower()
-    # 替换所有非字母数字字符为空格
+    name = name.replace('&', ' and ')
+    name = name.replace('-', ' ')
     name = re.sub(r'[^\w\s]', '', name)
-    # 替换连续多余空格为单空格
     name = re.sub(r'\s+', ' ', name).strip()
     return name
 

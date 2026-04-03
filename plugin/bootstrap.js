@@ -11,7 +11,12 @@ let menuitem;
 
 function standardize(name) {
     if (!name) return "";
-    return name.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').trim();
+    return name.toLowerCase()
+               .replace(/&/g, ' and ')
+               .replace(/-/g, ' ')
+               .replace(/[^\w\s]/g, '')
+               .replace(/\s+/g, ' ')
+               .trim();
 }
 
 async function updateABSRanking() {
@@ -21,16 +26,23 @@ async function updateABSRanking() {
     let jsonPath = rootURI + "content/journal_rankings.json";
     let dict;
     try {
-        let req = new XMLHttpRequest();
-        req.open('GET', jsonPath, false);
-        req.overrideMimeType("application/json");
-        req.send(null);
-        if (req.status !== 200 && req.status !== 0) {
-            throw new Error(`XHR file load failed with status: ${req.status}`);
-        }
-        dict = JSON.parse(req.responseText);
+        dict = await new Promise((resolve, reject) => {
+            let req = new XMLHttpRequest();
+            req.open('GET', jsonPath, true);
+            req.overrideMimeType("application/json");
+            req.onload = () => {
+                if (req.status === 200 || req.status === 0) {
+                    try { resolve(JSON.parse(req.responseText)); }
+                    catch(e) { reject(e); }
+                } else {
+                    reject(new Error(`XHR failed with status: ${req.status}`));
+                }
+            };
+            req.onerror = () => reject(new Error("Network error"));
+            req.send(null);
+        });
     } catch (e) {
-        Zotero.alert(null, "Error", "Could not load journal rankings database! \\nPath: " + jsonPath + "\\nReason: " + e.message);
+        Zotero.alert(null, "Error", "Could not load journal rankings database!\nPath: " + jsonPath + "\nReason: " + e.message);
         return;
     }
 
@@ -87,14 +99,31 @@ async function updateABSRanking() {
     });
     
     Zotero.Notifier.trigger('modify', 'item', items.map(item => item.id));
+
+    let regularItems = items.filter(item => item.isRegularItem() && item.getField('publicationTitle'));
+    let skippedCount = regularItems.length - processedCount;
+    let msg = `Updated ${processedCount} item(s).`;
+    if (skippedCount > 0) {
+        msg += `\n${skippedCount} item(s) had no matching journal in the database.`;
+    }
+    Zotero.alert(null, "ABS Ranking Update", msg);
     log(`Finished updating ${items.length} items. Updated ${processedCount} successfully.`);
 }
 
 function addToRightClickMenu() {
-    let doc = Zotero.getMainWindow().document;
-    if (!doc) return;
+    let win = Zotero.getMainWindow();
+    if (!win) {
+        log("Could not get main window");
+        return;
+    }
+    let doc = win.document;
     let menu = doc.getElementById('zotero-itemmenu');
-    if (!menu) return;
+    if (!menu) {
+        log("Could not find zotero-itemmenu element");
+        return;
+    }
+    // Avoid duplicate registration
+    if (doc.getElementById('zotero-abs-ranker-update')) return;
 
     menuitem = doc.createXULElement('menuitem');
     menuitem.id = 'zotero-abs-ranker-update';
@@ -106,6 +135,7 @@ function addToRightClickMenu() {
         });
     });
     menu.appendChild(menuitem);
+    log("Menu item added successfully");
 }
 
 function removeFromRightClickMenu() {
@@ -124,9 +154,25 @@ function startup({ id, version, resourceURI, rootURI: _rootURI }, reason) {
     }
     log("Starting up...");
     rootURI = _rootURI;
+    Zotero.uiReadyPromise.then(() => {
+        try {
+            addToRightClickMenu();
+        } catch(e) {
+            log("Failed to add menu item: " + e);
+        }
+    });
+}
+
+function onMainWindowLoad({ window }, reason) {
     try {
         addToRightClickMenu();
-    } catch(e) {}
+    } catch(e) {
+        log("Failed to add menu item: " + e);
+    }
+}
+
+function onMainWindowUnload({ window }, reason) {
+    removeFromRightClickMenu();
 }
 
 function shutdown(data, reason) {
