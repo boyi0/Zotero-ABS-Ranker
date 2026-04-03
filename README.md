@@ -30,6 +30,16 @@ Built specifically for Zotero 7, it utilizes an embedded offline database and bu
 3. Click on the new **Update ABS ranking** button in the context menu.
 4. Watch as the magic happens—tags and your Extra field are instantly populated.
 
+### 🎨 Pro Tip: Colored Tags Guide
+Zotero officially restricts users to a **maximum of 9 global colored tags** across the entire software application (tied to your keyboard shortcuts 1-9). By design, this plugin **does not** invasively hardcode or force colors onto your tags behind the scenes. Doing so would aggressively overwrite your personal color slots (e.g., your "Must Read" colored tag).
+
+**How to assign permanent colors yourself:**
+Once the plugin has assigned a text tag (like `ABS 4*` or `UTD24`) to an article:
+1. Locate the Tag Selector window at the bottom-left of your Zotero application.
+2. **Right-click** on the newly generated `ABS 4*` tag.
+3. Select **Assign Color...** and choose your favorite color (e.g., Red).
+4. **You're done forever!** From now on, whenever this plugin automatically assigns the `ABS 4*` text tag to any new future papers, Zotero will instantly remember your preference and render it as a bright red badge.
+
 ---
 
 <a id="中文说明"></a>
@@ -57,3 +67,13 @@ Built specifically for Zotero 7, it utilizes an embedded offline database and bu
 2. 呼出**右键菜单**。
 3. 点击右键菜单底部的 **Update ABS ranking** 按钮。
 4. 瞬间完成！你的文献已佩戴好荣耀的顶刊徽章。
+
+### 🎨 高阶技巧：为标签赋予颜色
+请注意，本插件**没有在底层系统级强制写入标签颜色**。因为 Zotero 官方设定了一个极为严苛的限制：**全软件最多只能拥有 9 个彩色标签**（与键盘区 1-9 快捷键强制绑定）。如果我们用代码霸道地强行锁死颜色，将会暴力覆盖并摧毁你个人常用的那些标红槽位（比如你自己的“精读”标签）。
+
+**正确且一劳永逸的上色方法：**
+只需在使用插件为随便一篇文章打出标签后，顺手进行一次如下设定：
+1. 看向 Zotero 界面左下角的 **标签列表 (Tag Selector)** 区域。
+2. **右键点击**新生成的 `ABS 4*` (或者 `FT50` 等) 标签词汇。
+3. 选择 **指定颜色 (Assign Color...)**，为你心仪的顶刊挑选一个耀眼的颜色并保存。
+4. **大功告成，终身自动生效！** 今后，只要本插件在后台往任何新文章上打上了这串 `ABS 4*` 的文字，Zotero 强大的记忆系统就会如同条件反射般，瞬间将其渲染成你选配好的彩色方块！
