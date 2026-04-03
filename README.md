@@ -1,5 +1,8 @@
 # Zotero ABS Ranker
 
+> 🤖 **Note / 提示:** This project and documentation were co-created with AI. If you have any questions, feel free to email: [boyi.jin@outlook.com](mailto:boyi.jin@outlook.com)  
+> 本项目代码与文档均由 AI 辅助生成，如有任何疑问，欢迎发邮件交流：[boyi.jin@outlook.com](mailto:boyi.jin@outlook.com)
+
 🌍 [中文说明 / Chinese Documentation](#中文说明) | 🇬🇧 [English Documentation](#english-documentation)
 
 ---
