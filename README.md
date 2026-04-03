@@ -57,3 +57,4 @@ Built specifically for Zotero 7, it utilizes an embedded offline database and bu
 2. 呼出**右键菜单**。
 3. 点击右键菜单底部的 **Update ABS ranking** 按钮。
 4. 瞬间完成！你的文献已佩戴好荣耀的顶刊徽章。
+# Zotero-ABS-Ranker
