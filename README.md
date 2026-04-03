@@ -40,6 +40,10 @@ Once the plugin has assigned a text tag (like `ABS 4*` or `UTD24`) to an article
 3. Select **Assign Color...** and choose your favorite color (e.g., Red).
 4. **You're done forever!** From now on, whenever this plugin automatically assigns the `ABS 4*` text tag to any new future papers, Zotero will instantly remember your preference and render it as a bright red badge.
 
+### ⭐️ Support & Feedback
+If you find this plugin helpful and it saves your precious research time, please consider giving this repository a ⭐️ **Star** at the top right, and share it with your colleagues!
+If you have any extra journal list requests (e.g., CCF, CSSCI) or encounter any bugs, please feel free to open an **Issue** or submit a PR. Your feedback is highly welcome!
+
 ---
 
 <a id="中文说明"></a>
@@ -77,3 +81,7 @@ Once the plugin has assigned a text tag (like `ABS 4*` or `UTD24`) to an article
 2. **右键点击**新生成的 `ABS 4*` (或者 `FT50` 等) 标签词汇。
 3. 选择 **指定颜色 (Assign Color...)**，为你心仪的顶刊挑选一个耀眼的颜色并保存。
 4. **大功告成，终身自动生效！** 今后，只要本插件在后台往任何新文章上打上了这串 `ABS 4*` 的文字，Zotero 强大的记忆系统就会如同条件反射般，瞬间将其渲染成你选配好的彩色方块！
+
+### ⭐️ 支持与反馈
+如果这个开源小工具切切实实地拯救了你的科研时间，**请务必在页面右上角给我点一颗 ⭐️ Star**，并把它极力安利给你身边的学术战友们！
+如果你想要我们为其追加更多的期刊名单库（比如 CCF、CSSCI、CSCD），或者在平时遇到了什么奇怪无法识别的情况，非常欢迎直接在 **Issues** 区给我留言提出需求。随时欢迎探讨与贡献代码！
