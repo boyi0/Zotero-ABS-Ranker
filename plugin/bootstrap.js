@@ -19,15 +19,21 @@ async function updateABSRanking() {
     if (!items || items.length === 0) return;
 
     let jsonPath = rootURI + "content/journal_rankings.json";
-    let rawJSON;
+    let dict;
     try {
-        rawJSON = await Zotero.File.getContentsFromURL(jsonPath);
+        let req = new XMLHttpRequest();
+        req.open('GET', jsonPath, false);
+        req.overrideMimeType("application/json");
+        req.send(null);
+        if (req.status !== 200 && req.status !== 0) {
+            throw new Error(`XHR file load failed with status: ${req.status}`);
+        }
+        dict = JSON.parse(req.responseText);
     } catch (e) {
-        Zotero.alert(null, "Error", "Could not load journal rankings database! " + jsonPath);
+        Zotero.alert(null, "Error", "Could not load journal rankings database! \\nPath: " + jsonPath + "\\nReason: " + e.message);
         return;
     }
 
-    let dict = JSON.parse(rawJSON);
     let processedCount = 0;
 
     await Zotero.DB.executeTransaction(async function() {
