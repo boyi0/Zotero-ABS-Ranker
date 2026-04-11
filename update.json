@@ -1,0 +1,17 @@
+{
+  "addons": {
+    "abs-ranker@boyijin.com": {
+      "updates": [
+        {
+          "version": "1.1.0",
+          "update_link": "https://github.com/boyi0/Zotero-ABS-Ranker/releases/download/v1.1.0/zotero-abs-ranker-v1.1.0.xpi",
+          "applications": {
+            "zotero": {
+              "strict_min_version": "7.0"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
