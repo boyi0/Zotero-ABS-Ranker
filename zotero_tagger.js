@@ -5,7 +5,7 @@
 // 将此代码粘贴并运行。
 // ============================================
 
-const jsonPath = "/Users/boyijin/Documents/Develop/PY/zotero_journal_ranking/journal_rankings.json";
+const jsonPath = "/Users/boyi/Documents/Claude/Projects/_shared/Zotero/journal_rankings.json";
 
 // 辅助函数：标准化名称 (去符号，去空格，全小写)
 function standardize(name) {

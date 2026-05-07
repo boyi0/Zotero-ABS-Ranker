@@ -26,21 +26,11 @@ async function loadRankings() {
 
     let jsonPath = rootURI + "content/journal_rankings.json";
     try {
-        cachedDict = await new Promise((resolve, reject) => {
-            let req = new XMLHttpRequest();
-            req.open('GET', jsonPath, true);
-            req.overrideMimeType("application/json");
-            req.onload = () => {
-                if (req.status === 200 || req.status === 0) {
-                    try { resolve(JSON.parse(req.responseText)); }
-                    catch(e) { reject(e); }
-                } else {
-                    reject(new Error(`XHR failed with status: ${req.status}`));
-                }
-            };
-            req.onerror = () => reject(new Error("Network error"));
-            req.send(null);
-        });
+        let response = await fetch(jsonPath);
+        if (!response.ok && response.status !== 0) {
+            throw new Error(`fetch failed with status: ${response.status}`);
+        }
+        cachedDict = await response.json();
         log("Rankings database loaded and cached (" + Object.keys(cachedDict.ABS || {}).length + " ABS entries)");
         return cachedDict;
     } catch (e) {
